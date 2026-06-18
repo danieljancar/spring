@@ -1,0 +1,18 @@
+info:
+  name: Delete employee
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: "{{domain}}/employees/1"
+  auth:
+    type: basic
+    username: admin
+    password: password
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,25 @@
+info:
+  name: Create employee
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{domain}}/employees"
+  body:
+    type: json
+    data: |-
+      {
+        "firstName": "Has",
+        "lastName": "Max"
+      }
+  auth:
+    type: basic
+    username: admin
+    password: password
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

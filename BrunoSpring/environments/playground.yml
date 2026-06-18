@@ -1,0 +1,4 @@
+name: playground
+variables:
+  - name: domain
+    value: http://localhost:8080

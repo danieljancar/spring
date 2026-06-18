@@ -1,0 +1,25 @@
+info:
+  name: Update employee
+  type: http
+  seq: 3
+
+http:
+  method: PUT
+  url: "{{domain}}/employees/1"
+  body:
+    type: json
+    data: |-
+      {
+        "firstName": "Dani",
+        "lastName": "Lovelace"
+      }
+  auth:
+    type: basic
+    username: admin
+    password: password
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
