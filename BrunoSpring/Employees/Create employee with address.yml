@@ -1,7 +1,7 @@
 info:
-  name: Create employee
+  name: Create employee with address
   type: http
-  seq: 2
+  seq: 5
 
 http:
   method: POST
@@ -10,8 +10,12 @@ http:
     type: json
     data: |-
       {
-        "firstName": "John",
-        "lastName": "Doe"
+        "firstName": "Alice",
+        "lastName": "Johnson",
+        "address": {
+          "street": "123 Main Street",
+          "city": "Springfield"
+        }
       }
   auth: inherit
 

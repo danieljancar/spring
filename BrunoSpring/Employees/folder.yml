@@ -4,4 +4,7 @@ info:
   seq: 1
 
 request:
-  auth: inherit
+  auth:
+    type: basic
+    username: admin
+    password: password

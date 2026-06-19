@@ -1,17 +1,17 @@
 info:
-  name: Update employee
+  name: Update address details
   type: http
-  seq: 3
+  seq: 12
 
 http:
   method: PUT
-  url: "{{domain}}/employees/1"
+  url: "{{domain}}/addresses/1"
   body:
     type: json
     data: |-
       {
-        "firstName": "Jane",
-        "lastName": "Smith"
+        "street": "999 Updated Boulevard",
+        "city": "San Francisco"
       }
   auth: inherit
 

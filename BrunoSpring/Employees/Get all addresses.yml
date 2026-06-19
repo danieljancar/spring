@@ -1,11 +1,11 @@
 info:
-  name: Delete employee
+  name: Get all addresses
   type: http
-  seq: 4
+  seq: 10
 
 http:
-  method: DELETE
-  url: "{{domain}}/employees/1"
+  method: GET
+  url: "{{domain}}/addresses"
   auth: inherit
 
 settings:

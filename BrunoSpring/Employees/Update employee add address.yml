@@ -1,7 +1,7 @@
 info:
-  name: Update employee
+  name: Update employee add address
   type: http
-  seq: 3
+  seq: 6
 
 http:
   method: PUT
@@ -10,8 +10,12 @@ http:
     type: json
     data: |-
       {
-        "firstName": "Jane",
-        "lastName": "Smith"
+        "firstName": "John",
+        "lastName": "Doe",
+        "address": {
+          "street": "456 Oak Avenue",
+          "city": "Portland"
+        }
       }
   auth: inherit
 

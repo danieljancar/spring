@@ -1,0 +1,26 @@
+info:
+  name: Update employee change address
+  type: http
+  seq: 7
+
+http:
+  method: PUT
+  url: "{{domain}}/employees/2"
+  body:
+    type: json
+    data: |-
+      {
+        "firstName": "Alice",
+        "lastName": "Johnson",
+        "address": {
+          "street": "789 Elm Street",
+          "city": "Seattle"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

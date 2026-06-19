@@ -1,11 +1,11 @@
 info:
-  name: Delete employee
+  name: Delete employee with cascade
   type: http
-  seq: 4
+  seq: 9
 
 http:
   method: DELETE
-  url: "{{domain}}/employees/1"
+  url: "{{domain}}/employees/2"
   auth: inherit
 
 settings:
