@@ -1,10 +1,9 @@
 package dev.danieljancar.playground.employees.controllers;
 
-import dev.danieljancar.playground.employees.entities.Employee;
-import dev.danieljancar.playground.employees.repositories.EmployeeRepository;
-import jakarta.validation.Valid;
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +13,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import dev.danieljancar.playground.employees.dto.UpdateEmployeeDTO;
+import dev.danieljancar.playground.employees.entities.Employee;
+import dev.danieljancar.playground.employees.repositories.EmployeeRepository;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/employees")
@@ -37,6 +41,16 @@ public class EmployeeController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/{id}/salary")
+    public ResponseEntity <Integer> getMonthlySalary(@PathVariable Long id) {
+        Optional<Employee> employee = repository.findById(id);
+        if (employee.isPresent() && employee.get().hasSalary()) {
+            return ResponseEntity.ok(employee.get().getSalary() / 12);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping
     public ResponseEntity<Employee> create(@Valid @RequestBody Employee employee) {
         Employee saved = repository.save(employee);
@@ -45,11 +59,18 @@ public class EmployeeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Employee> update(@PathVariable Long id, @Valid @RequestBody Employee input) {
+    public ResponseEntity<Employee> update(@PathVariable Long id, @Valid @RequestBody UpdateEmployeeDTO input) {
         return repository.findById(id)
                 .map(existing -> {
-                    existing.setFirstName(input.getFirstName());
-                    existing.setLastName(input.getLastName());
+                    if (input.getFirstName() != null) {
+                        existing.setFirstName(input.getFirstName());
+                    }
+                    if (input.getLastName() != null) {
+                        existing.setLastName(input.getLastName());
+                    }
+                    if (input.getSalary() != null) {
+                        existing.setSalary(input.getSalary());
+                    }
                     return ResponseEntity.ok(repository.save(existing));
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());

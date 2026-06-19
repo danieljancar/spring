@@ -1,7 +1,7 @@
 info:
-  name: Update employee - all fields
+  name: Update employee - firstName too short (should fail)
   type: http
-  seq: 3
+  seq: 14
 
 http:
   method: PUT
@@ -10,9 +10,7 @@ http:
     type: json
     data: |-
       {
-        "firstName": "Jane",
-        "lastName": "Smith",
-        "salary": 75000
+        "firstName": "Al"
       }
   auth: inherit
 

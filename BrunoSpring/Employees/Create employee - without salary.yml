@@ -1,18 +1,17 @@
 info:
-  name: Update employee - all fields
+  name: Create employee - without salary
   type: http
-  seq: 3
+  seq: 21
 
 http:
-  method: PUT
-  url: "{{domain}}/employees/1"
+  method: POST
+  url: "{{domain}}/employees"
   body:
     type: json
     data: |-
       {
-        "firstName": "Jane",
-        "lastName": "Smith",
-        "salary": 75000
+        "firstName": "Katherine",
+        "lastName": "Johnson"
       }
   auth: inherit
 

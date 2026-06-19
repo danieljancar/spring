@@ -1,7 +1,7 @@
 info:
-  name: Update employee - all fields
+  name: Update employee - negative salary (should fail)
   type: http
-  seq: 3
+  seq: 13
 
 http:
   method: PUT
@@ -10,9 +10,7 @@ http:
     type: json
     data: |-
       {
-        "firstName": "Jane",
-        "lastName": "Smith",
-        "salary": 75000
+        "salary": -5000
       }
   auth: inherit
 

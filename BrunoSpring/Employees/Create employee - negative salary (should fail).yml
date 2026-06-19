@@ -1,7 +1,7 @@
 info:
-  name: Create employee - basic
+  name: Create employee - negative salary (should fail)
   type: http
-  seq: 2
+  seq: 22
 
 http:
   method: POST
@@ -10,9 +10,9 @@ http:
     type: json
     data: |-
       {
-        "firstName": "John",
-        "lastName": "Doe",
-        "salary": 60000
+        "firstName": "Test",
+        "lastName": "User",
+        "salary": -10000
       }
   auth: inherit
 
