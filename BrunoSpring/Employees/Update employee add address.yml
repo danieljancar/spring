@@ -5,13 +5,11 @@ info:
 
 http:
   method: PUT
-  url: "{{domain}}/employees/1"
+  url: "{{domain}}/employees/2"
   body:
     type: json
     data: |-
       {
-        "firstName": "John",
-        "lastName": "Doe",
         "address": {
           "street": "456 Oak Avenue",
           "city": "Portland"

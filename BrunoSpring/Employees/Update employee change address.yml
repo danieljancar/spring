@@ -12,6 +12,7 @@ http:
       {
         "firstName": "Alice",
         "lastName": "Johnson",
+        "salary": 500000,
         "address": {
           "street": "789 Elm Street",
           "city": "Seattle"

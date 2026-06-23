@@ -14,13 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.danieljancar.playground.employees.constants.ApiConstants;
 import dev.danieljancar.playground.employees.dto.UpdateEmployeeDTO;
 import dev.danieljancar.playground.employees.entities.Employee;
 import dev.danieljancar.playground.employees.repositories.EmployeeRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/employees")
+@RequestMapping(ApiConstants.EMPLOYEES_BASE_PATH)
 public class EmployeeController {
 
     private final EmployeeRepository repository;
@@ -54,7 +55,7 @@ public class EmployeeController {
     @PostMapping
     public ResponseEntity<Employee> create(@Valid @RequestBody Employee employee) {
         Employee saved = repository.save(employee);
-        URI location = URI.create("/employees/" + saved.getId());
+        URI location = URI.create(ApiConstants.EMPLOYEES_BASE_PATH + "/" + saved.getId());
         return ResponseEntity.created(location).body(saved);
     }
 

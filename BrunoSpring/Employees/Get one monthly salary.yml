@@ -5,7 +5,7 @@ info:
 
 http:
   method: GET
-  url: "{{domain}}/employees/3/salary"
+  url: "{{domain}}/employees/1/salary"
   auth: inherit
 
 settings:
